@@ -40,10 +40,10 @@ class App extends React.Component<{ onHeaderTabsAdd: any, onHeaderTabsSet:any, h
 }
 
 
-export default observer<{headerTabs: string[]}>(App,
+export default observer<{headerTabs: string[]}>(
   appStoreFactory,
   {
     onHeaderTabsAdd: (v) => (state) => state.headerTabs.push(v),
     onHeaderTabsSet: (v) => (state) => state.headerTabs = [...v]
   }
-);
+)(App);

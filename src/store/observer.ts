@@ -5,8 +5,8 @@ import { Subscription, BehaviorSubject } from 'rxjs';
 import { InjectActions } from './InjectActions';
 
 
-const observer = <T>(WrappedComponent: React.ComponentType, observableFactory: (props?, state?) => {intlState: T, store: BehaviorSubject<T>}, injectActions: InjectActions<T>) => {
-    return class extends React.Component {
+const observer = <T>(observableFactory: (props?) => {intlState: T, store: BehaviorSubject<T>}, injectActions: InjectActions<T>) => (WrappedComponent: React.ComponentType) => {
+    return class extends React.Component<any> {
         public props$: BehaviorSubject<T>;
         public subscription: Subscription;
         public injectProps: React.ClassAttributes<T> = {};
