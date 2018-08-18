@@ -1,9 +1,16 @@
 import { BehaviorSubject } from 'rxjs'
 
-const appStoreFactory = (props, state) => {
-    const store = new BehaviorSubject<{ headerTabs: string[] }>(state)
+const appStoreFactory = () => {
+    const intlState = {
+        headerTabs: []
+    }
 
-    return store;
+    const store = new BehaviorSubject(intlState)
+
+    return {
+        intlState,
+        store
+    }
 };
 
 export default appStoreFactory;
